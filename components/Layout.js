@@ -6,7 +6,7 @@ import utilStyles from '../styles/utils.module.css'
 
 const name = 'Edy'
 
-export default function Layout({ children, title, description, home }) {
+export default function Layout ({ children, title, description, home }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +16,8 @@ export default function Layout({ children, title, description, home }) {
       </Head>
 
       <header className={styles.header}>
-        {home ? (
+        {home
+          ? (
           <>
             <Image
               priority
@@ -28,7 +29,8 @@ export default function Layout({ children, title, description, home }) {
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
-        ) : (
+            )
+          : (
           <>
             <Link href="/">
               <a>
@@ -48,7 +50,7 @@ export default function Layout({ children, title, description, home }) {
               </Link>
             </h2>
           </>
-        )}
+            )}
       </header>
       <nav>
         <Link href="/">
@@ -75,5 +77,5 @@ export default function Layout({ children, title, description, home }) {
 
 Layout.defaultProps = {
   title: 'Next.js | mi sitio web',
-  description: 'Mi sitio web con Next.js',
+  description: 'Mi sitio web con Next.js'
 }

@@ -1,7 +1,7 @@
-import Layout from "../../components/Layout"
-import Link from "next/link"
+import Layout from '../../components/Layout'
+import Link from 'next/link'
 
-export default function index ({data}) {
+export default function index ({ data }) {
   return (
     <Layout
       title="Blog | next.js"
@@ -9,7 +9,7 @@ export default function index ({data}) {
     >
       <h1>Blog</h1>
       {
-        data.map(({id, title, body}) => (
+        data.map(({ id, title, body }) => (
           <div key={id}>
             <h3>
               <Link href="/blog/[id]" as={`/blog/${id}`}>
@@ -26,7 +26,7 @@ export default function index ({data}) {
 
 export async function getStaticProps () {
   try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data = await res.json()
     return {
       props: {

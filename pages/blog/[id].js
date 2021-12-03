@@ -1,6 +1,6 @@
-import Layout from "../../components/Layout"
+import Layout from '../../components/Layout'
 
-export default function primerPost ({data}) {
+export default function primerPost ({ data }) {
   return (
     <Layout>
       <h1>{data.id} - {data.title}</h1>
@@ -9,11 +9,11 @@ export default function primerPost ({data}) {
   )
 }
 
-export async function  getStaticPaths() {
+export async function getStaticPaths () {
   try {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data = await res.json()
-    const paths = data.map(({id}) => ({params: {id: `${id}`}}))
+    const paths = data.map(({ id }) => ({ params: { id: `${id}` } }))
     return {
       paths,
       fallback: false
@@ -23,9 +23,9 @@ export async function  getStaticPaths() {
   }
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps ({ params }) {
   try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts/" + params.id)
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts/' + params.id)
     const data = await res.json()
     return {
       props: {

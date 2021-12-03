@@ -1,7 +1,7 @@
-import Layout from "../components/Layout"
-import styles from "../styles/Layout.module.css"
+import Layout from '../components/Layout'
+import styles from '../styles/Layout.module.css'
 
-export default function about() {
+export default function about () {
   return (
     <div className={styles.container}>
       <Layout
